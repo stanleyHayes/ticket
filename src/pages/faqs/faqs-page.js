@@ -1,5 +1,5 @@
 import Layout from "../../components/layout/layout";
-import {Container, Grid, Typography} from "@mui/material";
+import {Container, Grid} from "@mui/material";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
@@ -18,7 +18,7 @@ const FAQsPage = () => {
 
     const {faqLoading, faqError, faqs, categories} = useSelector(selectFAQs);
 
-    console.log(faqs)
+    console.log(faqs, categories, faqLoading, faqError);
     return (
         <Layout>
             <Container>

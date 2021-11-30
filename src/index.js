@@ -10,7 +10,15 @@ import {BrowserRouter} from "react-router-dom";
 
 const theme = createTheme({
     typography: {
-        fontFamily: 'IBM Plex Sans, Inter'
+        fontFamily: 'Raleway, IBM Plex Sans, Inter'
+    },
+    shape: {
+        borderRadius: 32
+    },
+    palette: {
+        primary: {
+            main: '#00a34d'
+        }
     }
 });
 

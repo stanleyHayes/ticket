@@ -35,5 +35,6 @@ const helpTopicsReducer = (state = INITIAL_STATE, action) => {
     }
 }
 
+export const selectHelpTopics = state => state.helpTopics;
 
 export default helpTopicsReducer;

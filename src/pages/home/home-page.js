@@ -3,12 +3,15 @@ import {Alert, AlertTitle, Button, Container, Divider, Grid, LinearProgress, Typ
 import {useDispatch, useSelector} from "react-redux";
 import {selectFAQs} from "../../redux/faqs/faq-reducer";
 import FaqCategory from "../../components/shared/faq-category";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {FAQ_ACTION_CREATORS} from "../../redux/faqs/faq-action-creators";
+import ShareConcernDialog from "../../components/dialogs/share-concern-dialog";
 
 const HomePage = () => {
 
     const {categories, faqLoading, faqError} = useSelector(selectFAQs);
+
+    const [shareConcernDialogOpen, setShareConcernDialogOpen] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -39,6 +42,7 @@ const HomePage = () => {
                         <Grid sx={{mb: 4}} container={true} spacing={3}>
                             <Grid item={true} xs={12} md={4}>
                                 <Button
+                                    onClick={() => setShareConcernDialogOpen(true)}
                                     fullWidth={true}
                                     disableElevation={true}
                                     sx={{
@@ -95,6 +99,13 @@ const HomePage = () => {
 
                 </Grid>
             </Grid>
+
+            {shareConcernDialogOpen && (
+                <ShareConcernDialog
+                    open={shareConcernDialogOpen}
+                    handleClose={() => setShareConcernDialogOpen(false)}
+                />
+            )}
         </Layout>
     )
 }
